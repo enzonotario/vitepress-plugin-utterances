@@ -1,0 +1,64 @@
+{
+  "name": "vitepress-plugin-utterances",
+  "type": "module",
+  "version": "0.0.1",
+  "packageManager": "pnpm@10.12.1+sha512.f0dda8580f0ee9481c5c79a1d927b9164f2c478e90992ad268bbb2465a736984391d6333d2c327913578b2804af33474ca554ba29c04a8b13060a717675ae3ac",
+  "description": "Add Utterances (GitHub Issues) comments to your VitePress site",
+  "author": "Enzo Notario <hi@enzonotario.me>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enzonotario/vitepress-plugin-utterances.git"
+  },
+  "keywords": [
+    "vitepress",
+    "vitepress-plugin",
+    "utterances"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "vite build",
+    "docs:build": "vitepress build docs",
+    "dev": "vitepress dev docs",
+    "lint": "eslint . --ext .js,.ts,.vue",
+    "lint:fix": "eslint . --ext .js,.ts,.vue --fix",
+    "typecheck": "vue-tsc --noEmit",
+    "preview": "vitepress preview docs",
+    "prepublish": "pnpm run build"
+  },
+  "peerDependencies": {
+    "vitepress": ">=1.0.0",
+    "vue": "^3.0.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.17.0",
+    "@typescript-eslint/eslint-plugin": "^8.8.0",
+    "@typescript-eslint/parser": "^8.8.0",
+    "@unocss/eslint-plugin": "^66.3.3",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "@ameinhardt/unocss-preset-daisy": "^1.1.8",
+    "@unocss/preset-wind4": "^66.4.2",
+    "daisyui": "^5.0.54",
+    "eslint": "^9.31.0",
+    "eslint-plugin-format": "^1.0.1",
+    "eslint-plugin-vue": "^9.27.0",
+    "typescript": "^5.6.3",
+    "unocss": "^66.3.3",
+    "vite": "^7.0.4",
+    "vitepress": "^1.6.3",
+    "@vueuse/core": "^12.3.0",
+    "vue-eslint-parser": "^9.4.3",
+    "vue-tsc": "^2.1.10"
+  }
+}
