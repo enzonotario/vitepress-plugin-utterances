@@ -93,48 +93,50 @@ async function copy() {
 </script>
 
 <template>
-  <div class="builder">
-    <div class="fields">
-      <div class="row">
-        <label>Repo</label>
-        <input v-model="repo" type="text" placeholder="owner/repo">
-      </div>
+  <div>
+    <div class="builder">
+      <div class="fields">
+        <div class="row">
+          <label>Repo</label>
+          <input v-model="repo" type="text" placeholder="owner/repo">
+        </div>
 
-      <div class="row">
-        <label>Issue Term</label>
-        <select v-model="issueTerm">
-          <option v-for="it in presetIssueTerms" :key="it" :value="it">
-            {{ it || 'default' }}
-          </option>
-        </select>
-        <input v-if="issueTerm === 'custom'" v-model="customIssueTerm" type="text" placeholder="custom value">
-      </div>
+        <div class="row">
+          <label>Issue Term</label>
+          <select v-model="issueTerm">
+            <option v-for="it in presetIssueTerms" :key="it" :value="it">
+              {{ it || 'default' }}
+            </option>
+          </select>
+          <input v-if="issueTerm === 'custom'" v-model="customIssueTerm" type="text" placeholder="custom value">
+        </div>
 
-      <div class="row">
-        <label>Label</label>
-        <input v-model="label" type="text" placeholder="optional">
-      </div>
+        <div class="row">
+          <label>Label</label>
+          <input v-model="label" type="text" placeholder="optional">
+        </div>
 
-      <div class="row">
-        <label>Theme</label>
-        <select v-model="theme">
-          <option v-for="t in presetThemes" :key="t" :value="t">
-            {{ t || 'auto (light/dark)' }}
-          </option>
-        </select>
-        <input v-if="theme === 'custom'" v-model="customTheme" type="text" placeholder="e.g. github-light">
-      </div>
+        <div class="row">
+          <label>Theme</label>
+          <select v-model="theme">
+            <option v-for="t in presetThemes" :key="t" :value="t">
+              {{ t || 'auto (light/dark)' }}
+            </option>
+          </select>
+          <input v-if="theme === 'custom'" v-model="customTheme" type="text" placeholder="e.g. github-light">
+        </div>
 
-      <div class="row">
-        <label>Crossorigin</label>
-        <select v-model="crossorigin">
-          <option value="anonymous">
-            anonymous
-          </option>
-          <option value="use-credentials">
-            use-credentials
-          </option>
-        </select>
+        <div class="row">
+          <label>Crossorigin</label>
+          <select v-model="crossorigin">
+            <option value="anonymous">
+              anonymous
+            </option>
+            <option value="use-credentials">
+              use-credentials
+            </option>
+          </select>
+        </div>
       </div>
     </div>
 
