@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { refDebounced } from '@vueuse/core'
-import { inBrowser, useData } from 'vitepress'
+import { inBrowser } from 'vitepress'
 import { computed, ref } from 'vue'
-
-const isDark = useData().isDark
 
 const repo = ref('enzonotario/vitepress-plugin-utterances')
 const issueTerm = ref<'pathname' | 'url' | 'title' | 'og:title' | string>('custom')
@@ -95,41 +93,41 @@ async function copy() {
 </script>
 
 <template>
-  <div class="grid gap-4 bg-transparent" :data-theme="isDark ? 'dark' : 'light'">
-    <div class="grid gap-2">
-      <div class="grid grid-cols-1 sm:grid-cols-[120px_1fr_auto] gap-2 items-center">
-        <label class="label-text">Repo</label>
-        <input v-model="repo" type="text" placeholder="owner/repo" class="input input-bordered w-full">
+  <div class="builder">
+    <div class="fields">
+      <div class="row">
+        <label>Repo</label>
+        <input v-model="repo" type="text" placeholder="owner/repo">
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-[120px_1fr_1fr_auto] gap-2 items-center">
-        <label class="label-text">Issue Term</label>
-        <select v-model="issueTerm" class="select select-bordered w-full">
+      <div class="row">
+        <label>Issue Term</label>
+        <select v-model="issueTerm">
           <option v-for="it in presetIssueTerms" :key="it" :value="it">
             {{ it || 'default' }}
           </option>
         </select>
-        <input v-if="issueTerm === 'custom'" v-model="customIssueTerm" type="text" placeholder="custom value" class="input input-bordered w-full">
+        <input v-if="issueTerm === 'custom'" v-model="customIssueTerm" type="text" placeholder="custom value">
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-[120px_1fr_auto] gap-2 items-center">
-        <label class="label-text">Label</label>
-        <input v-model="label" type="text" placeholder="optional" class="input input-bordered w-full">
+      <div class="row">
+        <label>Label</label>
+        <input v-model="label" type="text" placeholder="optional">
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-[120px_1fr_1fr_auto] gap-2 items-center">
-        <label class="label-text">Theme</label>
-        <select v-model="theme" class="select select-bordered w-full">
+      <div class="row">
+        <label>Theme</label>
+        <select v-model="theme">
           <option v-for="t in presetThemes" :key="t" :value="t">
             {{ t || 'auto (light/dark)' }}
           </option>
         </select>
-        <input v-if="theme === 'custom'" v-model="customTheme" type="text" placeholder="e.g. github-light" class="input input-bordered w-full">
+        <input v-if="theme === 'custom'" v-model="customTheme" type="text" placeholder="e.g. github-light">
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-[120px_1fr_auto] gap-2 items-center">
-        <label class="label-text">Crossorigin</label>
-        <select v-model="crossorigin" class="select select-bordered w-full">
+      <div class="row">
+        <label>Crossorigin</label>
+        <select v-model="crossorigin">
           <option value="anonymous">
             anonymous
           </option>
@@ -140,17 +138,17 @@ async function copy() {
       </div>
     </div>
 
-    <code class="flex items-center gap-2 !p-3 font-mono whitespace-pre-wrap break-words">
-      <pre class="flex-1">{{ code }}</pre>
+    <div class="code">
+      <pre>{{ code }}</pre>
 
-      <button class="btn btn-outline btn-sm" :disabled="!inBrowser" @click="copy">
+      <button class="btn" :disabled="!inBrowser" @click="copy">
         {{ copied ? 'Copied' : 'Copy' }}
       </button>
-    </code>
+    </div>
 
     <ClientOnly>
-      <div class="card card-bordered rounded-lg p-2.5">
-        <div v-if="validRepoDeb" class="p-1">
+      <div class="card">
+        <div v-if="validRepoDeb" class="inner">
           <Utterances
             :key="`${repoDeb}|${effectiveIssueTermDeb || 'pathname'}|${labelDeb}|${effectiveThemeDeb}|${crossoriginDeb}`"
             :repo="repoDeb"
@@ -160,7 +158,7 @@ async function copy() {
             :crossorigin="crossoriginDeb"
           />
         </div>
-        <p v-else class="text-base-content/70 my-1">
+        <p v-else class="note">
           Enter a valid repo in the form of owner/repo to preview.
         </p>
       </div>

@@ -44,8 +44,8 @@ bun install vitepress-plugin-utterances
 ## Setup
 
 ```ts
-import DefaultTheme from 'vitepress/theme'
 import VPUtterances from 'vitepress-plugin-utterances' // [!code ++]
+import DefaultTheme from 'vitepress/theme'
 
 export default {
   extends: DefaultTheme,

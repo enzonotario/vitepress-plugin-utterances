@@ -1,7 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 import VitePressPluginUtterances from '../../../src/index'
 import Builder from './components/Builder.vue'
-import 'uno.css'
+import './style.css'
 
 export default {
   extends: DefaultTheme,

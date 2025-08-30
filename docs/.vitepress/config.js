@@ -1,7 +1,4 @@
 import process from 'node:process'
-import { presetDaisy } from '@ameinhardt/unocss-preset-daisy'
-import presetWind4 from '@unocss/preset-wind4'
-import UnoCSS from 'unocss/vite'
 import { defineConfig } from 'vitepress'
 
 const gaId = process.env.GA_ID || 'G-TEST'
@@ -25,16 +22,6 @@ export default defineConfig({
       message: 'Released under the <a href="https://github.com/enzonotario/vitepress-plugin-utterances/blob/main/LICENSE">MIT License</a>.',
       copyright: 'Copyright © 2025-present <a href="https://enzonotario.me">Enzo Notario</a>',
     },
-  },
-  vite: {
-    plugins: [
-      UnoCSS({
-        presets: [
-          presetWind4(),
-          presetDaisy(),
-        ],
-      }),
-    ],
   },
   head: [
     // Google Analytics
