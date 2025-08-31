@@ -38,6 +38,20 @@ export default defineConfig({
       gtag('config', '${gaId}');`,
     ],
 
+    // Google Fonts
+    [
+      'link',
+      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+    ],
+    [
+      'link',
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+    ],
+    [
+      'link',
+      { href: 'https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap', rel: 'stylesheet' },
+    ],
+
     // OG Tags
     ['meta', { property: 'og:title', content: 'VitePress Plugin Utterances' }],
     ['meta', { property: 'og:description', content: 'A VitePress plugin that integrates the Utterances comments widget (GitHub Issues).' }],
