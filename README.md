@@ -19,4 +19,3 @@ See the docs site: https://vitepress-plugin-utterances.vercel.app/
 </a>
 
 > [Become a sponsor](https://github.com/sponsors/enzonotario)
-
